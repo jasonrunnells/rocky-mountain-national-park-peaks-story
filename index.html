@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Page Title -->
+    <title>Rocky Mountain National Park</title>
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="/css/style.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Main Wrapper -->
+    <div class="site-wrapper">
+        <!-- HEADER SECTION -->
+        <header class="site-header">
+            <div class="header-inner">
+                <!-- Left Header Content -->
+                <div class="header-left">
+                    <a href="../index.html" style="text-decoration: none; color: inherit;">Jason Runnells.</a>
+                    <span class="latlong">33.9941° N, 118.4527° W</span>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="hamburger" id="hamburger">&#9776;</button>
+                
+                <!-- Navigation Menu -->
+                <nav class="site-nav" id="site-nav">
+                    <a href="/index.html">Home <span class="icon">✦</span></a>
+                    <a href="/portfolio/index.html">Portfolio <span class="icon">✦</span></a>
+                    <div class="section-separator-menu"></div>
+                    <a href="#overview">Overview</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#elements">Cartographic Elements</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- TITLE SECTION -->
+        <h1 class="reveal">Rocky Mountain National Park</h1>
+        <h3 class="subtitle reveal2">A map of Rocky Mountain National Park showcasing peaks over 11,000 feet, designed with clear symbology and a balanced layout to emphasize elevation and landscape features.</h3>
+        <p class="reveal2">Jason Runnells <span style="font-weight: 800;">|</span> May, 2025</p>
+        <div class="section-separator-full"></div>
+
+        <!-- OVERVIEW SECTION -->
+        <h2 id="overview" class="reveal">Overview</h2>
+        <div class="section-separator reveal"></div>
+        <p class="width-75 reveal2">
+            This map of Rocky Mountain National Park highlights mountain peaks above 11,000 feet, using clear symbology, shaded relief, and thoughtful color choices to emphasize elevation and terrain. The layout integrates park boundaries, peak labels, and inset text panels providing context on the park's history and Longs Peak. Designed for clarity and visual balance, the map combines aesthetic appeal with informative cartographic design.
+        </p>
+
+        <!-- IMAGE GALLERY SECTION -->
+        <div id="gallery" class="gallery-player">
+            <!-- Main Gallery Image -->
+            <div class="gallery-player-main">
+                <img 
+                    src="/images/rmnp/rmnp_framed.webp" 
+                    alt="Rocky Mountain National Park topographic map in frame" 
+                    id="gallery-player-main-img" 
+                    data-caption="Rocky Mountain National Park Framed"
+                    class="lightbox-trigger"
+                >
+            </div>
+
+            <!-- Gallery Thumbnails -->
+            <div class="gallery-player-thumbs">
+                <img 
+                    src="/images/rmnp/rmnp_framed.webp" 
+                    alt="Framed version of the map" 
+                    class="gallery-player-thumb" 
+                    data-full="/images/rmnp/rmnp_framed.webp" 
+                    data-caption="Rocky Mountain National Park Framed"
+                >
+
+                <img 
+                    src="/images/rmnp/rmnp_full.webp" 
+                    alt="Full view of Rocky Mountain National Park map" 
+                    class="gallery-player-thumb" 
+                    data-full="/images/rmnp/rmnp_full.webp" 
+                    data-caption="Rocky Mountain National Park Map"
+                >
+
+                <img 
+                    src="/images/rmnp/rmnp_lakes.webp" 
+                    alt="Detail view of mountain lakes" 
+                    class="gallery-player-thumb" 
+                    data-full="/images/rmnp/rmnp_lakes.webp" 
+                    data-caption="Detail of mountain lakes"
+                >
+
+                <img 
+                    src="/images/rmnp/rmnp_longs.webp" 
+                    alt="Detail view of Longs Peak" 
+                    class="gallery-player-thumb" 
+                    data-full="/images/rmnp/rmnp_longs.webp" 
+                    data-caption="Detail of Longs Peak"
+                >
+
+                <img 
+                    src="/images/rmnp/rmnp_br.webp" 
+                    alt="Detail view of bottom right map section" 
+                    class="gallery-player-thumb" 
+                    data-full="/images/rmnp/rmnp_br.webp" 
+                    data-caption="Detail of bottom right section"
+                >
+
+                <img 
+                    src="/images/rmnp/rmnp_tl.webp" 
+                    alt="Detail view of top left map section" 
+                    class="gallery-player-thumb" 
+                    data-full="/images/rmnp/rmnp_tl.webp" 
+                    data-caption="Detail of top left section"
+                >
+            </div>
+        </div>
+
+        <!-- CARTOGRAPHIC ELEMENTS SECTION -->
+        <h2 id="elements" class="reveal">Cartographic Elements</h2>
+        <div class="section-separator reveal"></div>
+        <ul class="width-50 reveal2">
+            <li><strong>Symbology:</strong> Peaks above 11,000 feet are clearly marked, with consistent symbols and label styles that stand out against the terrain.</li>
+            <br>
+            <li><strong>Topography:</strong> Shaded relief and subtle contouring give depth and form to the landscape, emphasizing the park's dramatic elevation changes.</li>
+            <br>
+            <li><strong>Color:</strong> A restrained palette highlights elevation zones and park boundaries without overpowering the natural feel of the map.</li>
+            <br>
+            <li><strong>Typography:</strong> Mountain names, features, and boundaries are labeled with clean, legible fonts positioned for clarity and minimal overlap.</li>
+            <br>
+            <li><strong>Layout:</strong> The map includes balanced marginalia and inset panels that provide historical and geographic context without detracting from the main map.</li>
+            <br>
+            <li><strong>Boundary Lines:</strong> The park's official boundaries are delineated with a clear, contrasting line to help distinguish protected areas.</li>
+        </ul>
+
+    </div> <!-- /site-wrapper -->
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close">&times;</button>
+            <img id="lightbox-img" src="" alt="" />
+            <p id="lightbox-caption" class="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // ======================
+        // MOBILE MENU FUNCTIONALITY
+        // ======================
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('site-nav');
+
+        // Toggle mobile menu
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('open');
+            hamburger.textContent = nav.classList.contains('open') ? '✕' : '☰';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.site-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('open');
+                hamburger.textContent = '☰';
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+                nav.classList.remove('open');
+                hamburger.textContent = '☰';
+            }
+        });
+
+        // ======================
+        // SCROLL REVEAL ANIMATIONS
+        // ======================
+        function observeReveal(selector) {
+            const elements = document.querySelectorAll(selector);
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            elements.forEach(el => observer.observe(el));
+        }
+
+        // Initialize reveal animations
+        observeReveal('.reveal');
+        observeReveal('.reveal2');
+
+        // ======================
+        // LIGHTBOX FUNCTIONALITY
+        // ======================
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        // Set up lightbox triggers
+        document.querySelectorAll('.lightbox-trigger').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightboxCaption.textContent = img.dataset.caption || '';
+                lightbox.classList.add('show');
+            });
+        });
+
+        // Close lightbox
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target === closeBtn) {
+                lightbox.classList.remove('show');
+                lightboxImg.src = '';
+                lightboxCaption.textContent = '';
+            }
+        });
+
+        // Close lightbox with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                lightbox.classList.remove('show');
+                lightboxImg.src = '';
+                lightboxCaption.textContent = '';
+            }
+        });
+
+        // ======================
+        // GALLERY FUNCTIONALITY
+        // ======================
+        // Update main image when thumbnail is clicked
+        document.querySelectorAll('.gallery-player-thumb').forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                const mainImg = document.getElementById('gallery-player-main-img');
+                mainImg.src = thumb.dataset.full;
+                mainImg.alt = thumb.alt;
+                mainImg.dataset.caption = thumb.dataset.caption || '';
+            });
+        });
+
+        // Enable main image click to open lightbox
+        const mainImg = document.getElementById('gallery-player-main-img');
+        mainImg.addEventListener('click', () => {
+            lightboxImg.src = mainImg.src;
+            lightboxImg.alt = mainImg.alt;
+            lightboxCaption.textContent = mainImg.dataset.caption || '';
+            lightbox.classList.add('show');
+        });
+    </script>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p class="footer-text">© 2025 Jason Runnells</p>
+        </div>
+    </footer>
+</body>
+</html>
