@@ -58,18 +58,72 @@
             This map of Rocky Mountain National Park highlights mountain peaks above 11,000 feet, using clear symbology, shaded relief, and thoughtful color choices to emphasize elevation and terrain. The layout integrates park boundaries, peak labels, and inset text panels providing context on the park's history and Longs Peak. Designed for clarity and visual balance, the map combines aesthetic appeal with informative cartographic design.
         </p>
 
-<!-- IMAGE GALLERY SECTION -->
-<section id="gallery" class="gallery-grid">
-  <img src="images/rmnp_framed.webp" alt="Rocky Mountain National Park Framed" class="lightbox-trigger" data-caption="Framed view of the full map" />
-  <img src="images/rmnp_full.webp" alt="Full map view of Rocky Mountain National Park" class="lightbox-trigger" data-caption="Full map layout" />
-  <img src="images/rmnp_lakes.webp" alt="Detail of mountain lakes" class="lightbox-trigger" data-caption="Mountain lakes detail" />
-  <img src="images/rmnp_longs.webp" alt="Detail of Longs Peak" class="lightbox-trigger" data-caption="Longs Peak detail" />
-  <img src="images/rmnp_br.webp" alt="Bottom right section of map" class="lightbox-trigger" data-caption="Bottom right detail" />
-  <img src="images/rmnp_tl.webp" alt="Top left section of map" class="lightbox-trigger" data-caption="Top left detail" />
-</section>
+        <!-- IMAGE GALLERY SECTION -->
+        <div id="gallery" class="gallery-player">
+            <!-- Main Gallery Image -->
+            <div class="gallery-player-main">
+                <img 
+                    src="images/rmnp_framed.webp" 
+                    alt="Rocky Mountain National Park topographic map in frame" 
+                    id="gallery-player-main-img" 
+                    data-caption="Rocky Mountain National Park Framed"
+                    class="lightbox-trigger"
+                >
+            </div>
 
+            <!-- Gallery Thumbnails -->
+            <div class="gallery-player-thumbs">
+                <img 
+                    src="images/rmnp_framed.webp" 
+                    alt="Framed version of the map" 
+                    class="gallery-player-thumb" 
+                    data-full="images/rmnp_framed.webp" 
+                    data-caption="Rocky Mountain National Park Framed"
+                >
 
-<!-- CARTOGRAPHIC ELEMENTS SECTION -->
+                <img 
+                    src="images/rmnp_full.webp" 
+                    alt="Full view of Rocky Mountain National Park map" 
+                    class="gallery-player-thumb" 
+                    data-full="images/rmnp_full.webp" 
+                    data-caption="Rocky Mountain National Park Map"
+                >
+
+                <img 
+                    src="images/rmnp_lakes.webp" 
+                    alt="Detail view of mountain lakes" 
+                    class="gallery-player-thumb" 
+                    data-full="images/rmnp_lakes.webp" 
+                    data-caption="Detail of mountain lakes"
+                >
+
+                <img 
+                    src="images/rmnp_longs.webp" 
+                    alt="Detail view of Longs Peak" 
+                    class="gallery-player-thumb" 
+                    data-full="images/rmnp_longs.webp" 
+                    data-caption="Detail of Longs Peak"
+                >
+
+                <img 
+                    src="images/rmnp_br.webp" 
+                    alt="Detail view of bottom right map section" 
+                    class="gallery-player-thumb" 
+                    data-full="images/rmnp_br.webp" 
+                    data-caption="Detail of bottom right section"
+                >
+
+                <img 
+                    src="images/rmnp_tl.webp" 
+                    alt="Detail view of top left map section" 
+                    class="gallery-player-thumb" 
+                    data-full="images/rmnp_tl.webp" 
+                    data-caption="Detail of top left section"
+                >
+            </div>
+        </div>
+
+        <!-- CARTOGRAPHIC ELEMENTS SECTION -->
         <h2 id="elements" class="reveal">Cartographic Elements</h2>
         <div class="section-separator reveal"></div>
         <ul class="width-50 reveal2">
@@ -204,6 +258,25 @@
     }
   });
 
+  // ======================
+  // GALLERY FUNCTIONALITY
+  // ======================
+  document.querySelectorAll('.gallery-player-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const mainImg = document.getElementById('gallery-player-main-img');
+      mainImg.src = thumb.dataset.full;
+      mainImg.alt = thumb.alt;
+      mainImg.dataset.caption = thumb.dataset.caption || '';
+    });
+  });
+
+  const mainImg = document.getElementById('gallery-player-main-img');
+  mainImg.addEventListener('click', () => {
+    lightboxImg.src = mainImg.src;
+    lightboxImg.alt = mainImg.alt;
+    lightboxCaption.textContent = mainImg.dataset.caption || '';
+    lightbox.classList.add('show');
+  });
 </script>
     <!-- FOOTER -->
     <footer class="site-footer">
