@@ -9,7 +9,7 @@
     <title>Rocky Mountain National Park</title>
     
     <!-- CSS Links -->
-    <link rel="stylesheet" href="https://jasonrunnells.github.io/css/style.css" />
+<link rel="stylesheet" href="https://jasonrunnells.github.io/css/style.css">    
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;700&display=swap" rel="stylesheet" />
@@ -58,69 +58,14 @@
             This map of Rocky Mountain National Park highlights mountain peaks above 11,000 feet, using clear symbology, shaded relief, and thoughtful color choices to emphasize elevation and terrain. The layout integrates park boundaries, peak labels, and inset text panels providing context on the park's history and Longs Peak. Designed for clarity and visual balance, the map combines aesthetic appeal with informative cartographic design.
         </p>
 
-        <!-- IMAGE GALLERY SECTION -->
-        <div id="gallery" class="gallery-player">
-            <!-- Main Gallery Image -->
-            <div class="gallery-player-main">
-                <img 
-                    src="images/rmnp_framed.webp" 
-                    alt="Rocky Mountain National Park topographic map in frame" 
-                    id="gallery-player-main-img" 
-                    data-caption="Rocky Mountain National Park Framed"
-                    class="lightbox-trigger"
-                >
-            </div>
-
-            <!-- Gallery Thumbnails -->
-            <div class="gallery-player-thumbs">
-                <img 
-                    src="images/rmnp_framed.webp" 
-                    alt="Framed version of the map" 
-                    class="gallery-player-thumb" 
-                    data-full="images/rmnp_framed.webp" 
-                    data-caption="Rocky Mountain National Park Framed"
-                >
-
-                <img 
-                    src="images/rmnp_full.webp" 
-                    alt="Full view of Rocky Mountain National Park map" 
-                    class="gallery-player-thumb" 
-                    data-full="images/rmnp_full.webp" 
-                    data-caption="Rocky Mountain National Park Map"
-                >
-
-                <img 
-                    src="images/rmnp_lakes.webp" 
-                    alt="Detail view of mountain lakes" 
-                    class="gallery-player-thumb" 
-                    data-full="images/rmnp_lakes.webp" 
-                    data-caption="Detail of mountain lakes"
-                >
-
-                <img 
-                    src="images/rmnp_longs.webp" 
-                    alt="Detail view of Longs Peak" 
-                    class="gallery-player-thumb" 
-                    data-full="images/rmnp_longs.webp" 
-                    data-caption="Detail of Longs Peak"
-                >
-
-                <img 
-                    src="images/rmnp_br.webp" 
-                    alt="Detail view of bottom right map section" 
-                    class="gallery-player-thumb" 
-                    data-full="images/rmnp_br.webp" 
-                    data-caption="Detail of bottom right section"
-                >
-
-                <img 
-                    src="images/rmnp_tl.webp" 
-                    alt="Detail view of top left map section" 
-                    class="gallery-player-thumb" 
-                    data-full="images/rmnp_tl.webp" 
-                    data-caption="Detail of top left section"
-                >
-            </div>
+        <!-- IMAGE GRID SECTION -->
+        <div id="gallery" class="image-grid reveal2">
+        <img src="images/rmnp_framed.webp" alt="Rocky Mountain National Park Framed" data-caption="Rocky Mountain National Park Framed" class="lightbox-trigger" />
+        <img src="images/rmnp_full.webp" alt="Full view of Rocky Mountain National Park map" data-caption="Rocky Mountain National Park Map" class="lightbox-trigger" />
+        <img src="images/rmnp_lakes.webp" alt="Detail view of mountain lakes" data-caption="Detail of mountain lakes" class="lightbox-trigger" />
+        <img src="images/rmnp_longs.webp" alt="Detail view of Longs Peak" data-caption="Detail of Longs Peak" class="lightbox-trigger" />
+        <img src="images/rmnp_br.webp" alt="Detail view of bottom right map section" data-caption="Detail of bottom right section" class="lightbox-trigger" />
+        <img src="images/rmnp_tl.webp" alt="Detail view of top left map section" data-caption="Detail of top left section" class="lightbox-trigger" />
         </div>
 
         <!-- CARTOGRAPHIC ELEMENTS SECTION -->
@@ -153,132 +98,9 @@
     </div>
 
     <!-- JAVASCRIPT -->
-<script>
-  // ======================
-  // MOBILE NAVIGATION FUNCTIONALITY
-  // ======================
-  const hamburger = document.getElementById('hamburger');
-  const siteNav = document.getElementById('site-nav');
-  const mobileNavOverlay = document.createElement('div');
-  mobileNavOverlay.className = 'mobile-nav-overlay';
-  document.body.appendChild(mobileNavOverlay);
+<script src="https://jasonrunnells.github.io/js/main.js"></script>
 
-  hamburger.addEventListener('click', () => {
-    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-    hamburger.setAttribute('aria-expanded', !isExpanded);
-    siteNav.setAttribute('aria-hidden', isExpanded);
-    mobileNavOverlay.classList.toggle('active', !isExpanded);
-    document.body.style.overflow = isExpanded ? '' : 'hidden';
-  });
-
-  mobileNavOverlay.addEventListener('click', () => {
-    hamburger.setAttribute('aria-expanded', 'false');
-    siteNav.setAttribute('aria-hidden', 'true');
-    mobileNavOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-  });
-
-  document.querySelectorAll('.site-nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.setAttribute('aria-expanded', 'false');
-      siteNav.setAttribute('aria-hidden', 'true');
-      mobileNavOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-  });
-
-  // ======================
-  // SCROLL REVEAL ANIMATIONS
-  // ======================
-  function observeReveal(selector) {
-    const elements = document.querySelectorAll(selector);
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    elements.forEach(el => observer.observe(el));
-  }
-
-  observeReveal('.reveal');
-  observeReveal('.reveal2');
-
-  // ======================
-  // SMOOTH SCROLLING FOR ANCHOR LINKS (100px offset)
-  // ======================
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      if (this.href.includes('jasonrunnells.github.io')) return;
-      e.preventDefault();
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 100,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-
-  // ======================
-  // LIGHTBOX FUNCTIONALITY
-  // ======================
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxCaption = document.getElementById('lightbox-caption');
-  const closeBtn = document.querySelector('.lightbox-close');
-
-  document.querySelectorAll('.lightbox-trigger').forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightboxCaption.textContent = img.dataset.caption || '';
-      lightbox.classList.add('show');
-    });
-  });
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox || e.target === closeBtn) {
-      lightbox.classList.remove('show');
-      lightboxImg.src = '';
-      lightboxCaption.textContent = '';
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      lightbox.classList.remove('show');
-      lightboxImg.src = '';
-      lightboxCaption.textContent = '';
-    }
-  });
-
-  // ======================
-  // GALLERY FUNCTIONALITY
-  // ======================
-  document.querySelectorAll('.gallery-player-thumb').forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      const mainImg = document.getElementById('gallery-player-main-img');
-      mainImg.src = thumb.dataset.full;
-      mainImg.alt = thumb.alt;
-      mainImg.dataset.caption = thumb.dataset.caption || '';
-    });
-  });
-
-  const mainImg = document.getElementById('gallery-player-main-img');
-  mainImg.addEventListener('click', () => {
-    lightboxImg.src = mainImg.src;
-    lightboxImg.alt = mainImg.alt;
-    lightboxCaption.textContent = mainImg.dataset.caption || '';
-    lightbox.classList.add('show');
-  });
-</script>
-    <!-- FOOTER -->
+<!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-inner">
             <p class="footer-text">© 2025 Jason Runnells</p>
